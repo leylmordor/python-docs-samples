@@ -25,12 +25,15 @@ spec:
     app: bookstore-app
   type: LoadBalancer
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: bookstore
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: bookstore-app
   template:
     metadata:
       labels:
